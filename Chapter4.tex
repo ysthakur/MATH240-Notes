@@ -1,0 +1,91 @@
+\section{todo}
+
+\subsection{todo}
+
+\subsection{todo}
+
+\subsection{todo}
+
+\subsection{todo}
+
+\subsection{The Dimensions of a Vector Space}
+
+\subsubsection*{Goldilocks}
+
+\textbf{Theorem}: If $V$ is a vector space with basis $B = \set{\vec{b_1}, ..., \vec{b_n}}$, then any set of vectors in $V$ with more than $n$ elements must be linearly dependent. In particular, any linearly independent set in $V$ has at most $n$ vectors in it.
+
+\textbf{Theorem}: If $V$ is a vector space with basis $B = \set{\vec{b_1}, ..., \vec{b_n}}$, then any set of vectors in $V$ with less than $n$ elements doesn't span $V$.
+
+\textbf{Theorem}: If $V$ is a vector space with basis $B = \set{\vec{b_1}, ..., \vec{b_n}}$, then every basis of $V$ also has exactly $n$ vectors in it.
+
+\textbf{Definition}: If $V$ has a finite spanning set, $V$ is \textbf{finite-dimensional}. The size of any basis is called the \textbf{dimension} of $V$, written $\dim(V)$.\\
+Define $\dim(\set{\vec{0}}) = 0$. If not spanned by finite set, is infinite-dimensional.
+
+\subsubsection*{Dimensions of various spaces}
+
+\begin{itemize}
+    \item $\R^n$ has dimension $n$
+    \item $\mathbb{P}^n$ has dimension $n+1$ (basis is $\set{1, t^1, t^2, ..., t^n}$)
+    \item Complex numbers have dimension 2 (because they're $\Span(1, i)$)
+\end{itemize}
+
+\textbf{Theorem:} Let $V$ be a finite-dimensional vector space and let $H \subseteq V$ be a vector subspace.
+\begin{enumerate}
+    \item Any linearly independent set in $H$ can be expanded to a basis of $H$.
+    \item $H$ is finite-dimensional and $\dim H \leq \dim V$.
+\end{enumerate}
+
+\textbf{Theorem:} Let $V$ be a finite-dimensional vector space, $\dim V = n \geq 1$.
+\begin{enumerate}
+    \item Any linearly independent set of $n$ vectors in $V$ is automatically a basis of $V$.
+    \item Any spanning set of $n$ vectors in $V$ is automatically a basis of $V$.
+\end{enumerate}
+
+\subsubsection*{Dimensions of stuff}
+\begin{enumerate}
+    \item $\dim(\Col(A)) =$ \# pivot columns of $A$
+    \item $\dim(\Null(A)) =$ \# non pivot columns of $A$
+    \item $\dim(\Row(A)) = \dim(\Col(A)) =$ \# pivot rows of $A$
+\end{enumerate}
+
+\textbf{Definition:} The \textbf{rank} of an $m \times n$ matrix $A$ is $\dim(\Col(A)) = \dim(\Row(A)) = $ \# pivots in $A$.
+
+\subsubsection*{Additions to Invertible Matrix Theorem}
+\begin{enumerate}
+    \item $\rank(A) = n$
+    \item $\Col(A) = \R^n$
+    \item $\Null(A) = \set{\vec 0}$
+\end{enumerate}
+
+\textbf{Fact:} Let $V$, $W$ be finite-dimensional vector spaces, let $T\colon V \mapsto W$ be a linear transformation.\\
+Then $\dim(\Ker(T)) + \dim(\Image(T)) = \dim W$\\
+(analogous to dimension of null space + col space equaling \# cols)
+
+\textbf{Fact:} Row ops don't change relations of linear dependence between columns.\\
+But they do change relations of linear dependence between \emph{rows}.
+
+\subsection{Change of basis}
+
+If you have a vector $\vec x$ in some basis $B$ and you want to find its coordinates in some other basis $B'$, you can use $[\vec x]_{B'} = \left[\left[\vec{b_1}\right]_B  \,\, \left[\vec{b_2}\right]_B\right][\vec x]_B$
+
+\subsubsection*{Change-of-coordinates matrix}
+
+The above works in general:
+
+If $B = \{\vec{b_1}, ..., \vec{b_n}\}$ and $B' = \{\vec{b_1}', ..., \vec{b_n}'\}$ are bases of some vector space,\\
+then there is a unique $n \times n$ matrix $\underset{B' \leftarrow B}{P}$ such that $[\vec x]_{B'} = \underset{B' \leftarrow B}{P} \cdot [\vec x]_{B}$\\
+where $\underset{B' \leftarrow B}{P} = \left[\left[\vec{b_1}\right]_{B'} ... \left[\vec{b_n}\right]_{B'}\right]$
+
+This $\underset{B' \leftarrow B}{P}$ is called the \textbf{change-of-coordinates matrix} from $B$ to $B'$.
+
+Columns of $\underset{B' \leftarrow B}{P}$ are coordinate vectors of a basis so they're also linearly independent, so by Invertible Matrix Theorem, $\underset{B' \leftarrow B}{P}$ is invertible. So\\
+$[\vec x]_{B} = \left(\underset{B' \leftarrow B}{P}\right)^{-1} \cdot [\vec x]_{B'}$
+
+$\left(\underset{B' \leftarrow B}{P}\right)^{-1} = \underset{B \leftarrow B'}{P}$
+
+\subsubsection*{Finding change-of-coordinates matrix}
+Let $B = \{\vec{b_1}, ..., \vec{b_n}\}$ and $B' = \{\vec{b_1}', ..., \vec{b_n}'\}$ be 2 bases of $\mathbb{R}^n$. To get $\underset{B' \leftarrow B}{P}$, make augmented matrix and row reduce:
+
+$\left[ \vec{b_1}' ~ \vec{b_2} ~ ... ~ \vec{b_n}' \mid \vec{b_1} ~ \vec{b_2} ~ ... ~ \vec{b_n} \right] \sim \left[I_n \mid \underset{B' \leftarrow B}{P} \right]$
+
+\textbf{Fact:} There's a 1-1 correspondence between bases and invertible matrices.

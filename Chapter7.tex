@@ -1,0 +1,28 @@
+\section{Symmetric Matrices and Quadratic Forms}
+
+\subsection{Diagonalization of Symmetric Matrices}
+
+\subsubsection*{Spectral Theorem}
+
+\textbf{Definition:} Given an $n \times n$ matrix $A$, the \textbf{spectrum} of $A$ is \{eigenvalues of $A$\}.
+
+\textbf{Definition:} A matrix $A$ is \textbf{symmetric} if $A = A^T$ ($a_{ij} = a_{ji}$, if $A = (a_{ij})$)
+
+\textbf{Fact:} (bit unrelated) Symmetric matrices have real eigenvalues.
+
+\textbf{Theorem:} Let $A$ be symmetric. Then eigenvectors for $A$ with distinct eigenvalues are orthogonal (if it weren't symmetric, they'd merely be linearly independent).
+
+One nice thing is that now if you diagonalize $A$ into $PDP^{-1}$, then $P$ just needs to be scaled to become an orthogonal matrix $Q$ (you can keep the same $D$, so now $A = QDQ^{-1} = QDQ^T$).
+
+\textbf{Definition:} If $A = QDQ^T$ for a diagonal matrix $D$ and an orthogonal matrix $Q$, then we say that $A$ is \textbf{orthogonally diagonalizable}.
+
+\textbf{Theorem (Spectral Theorem):} An $n \times n$ real matrix is orthogonally diagonalizable if and only if it is symmetric.
+
+\subsubsection*{Spectral Decomposition}
+
+If you want to multiple some matrix $A$ with some matrix $B$, you can multiply the columns of $A$ by the rows of $B$ instead of the rows of $A$ with the columns of $B$. So if $A$'s columns are $\Vec{a_i}$ and $B$'s rows are $\Vec{b_i}$, then $AB = \Vec{a_1}\Vec{b_1}^T + ... + \Vec{a_n}\Vec{b_n}^T$. Each of these $\Vec{a_1}\Vec{b_1}^T$ are rank 1 matrices.
+
+If you have a symmetric matrix $A$ that has eigenvectors $\Vec{u_1}, ..., \Vec{u_n}$ with corresponding eigenvalues $\lambda_1, ..., \lambda_n$, you can factor it into $QDQ^T$, where $Q = \begin{bmatrix}\Vec{u_1} & ... & \Vec{u_n}\end{bmatrix}$ and $D = \begin{bmatrix}\lambda_1 & ... & 0 \\ 0 & \ddots & 0 \\ 0 & .. & \lambda_n\end{bmatrix}$.\\
+Using that thing above, $QDQ^T = \lambda_1\Vec{u_1}\Vec{u_1}^T + ... + \lambda_n\Vec{u_n}\Vec{u_n}^T$.
+
+This is called the \textbf{spectral decomposition} of $A$.

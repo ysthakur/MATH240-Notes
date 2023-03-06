@@ -1,0 +1,50 @@
+\documentclass[leqno]{article}
+
+\input{Commands}
+
+\begin{document}
+
+\section*{5.1}
+
+\begin{enumerate}
+    \item[1.] $\det(A - 2I) = \begin{vmatrix}1 & 2 \\ 3 & 6\end{vmatrix} = 6 - 6 = 0$\\
+    Yes.
+    \item[3.] $\begin{bmatrix}-3 & 1 \\ -3 & 8\end{bmatrix}\begin{bmatrix}1 \\ 4\end{bmatrix} = \begin{bmatrix}1 \\ 29\end{bmatrix}$\\
+    No, because it's not a multiple of the original vector.
+    \item[5.] $\begin{bmatrix}0 \\ 0 \\ 0\end{bmatrix}$. Yes, it's an eigenvector with eigenvalue 0.
+    \item[7.] $\det(A - 4I) = \begin{vmatrix}-1 & 0 & -1 \\ 2 & -1 & 1 \\ -3 & 4 & 1\end{vmatrix} = \begin{vmatrix}-1 & 0 & -1 \\ 2 & -1 & 1 \\ 5 & 0 & 5\end{vmatrix} = \begin{vmatrix}0 & 0 & 0 \\ 2 & -1 & 1 \\ 5 & 0 & 5\end{vmatrix} = \begin{vmatrix}0 & 0 & 0 \\ 1 & -1 & 0 \\ 5 & 0 & 5\end{vmatrix} = 0$.\\
+    It's an eigenvalue.\\
+    Eigenvector: $\begin{bmatrix}-1 \\ -1 \\ 1\end{bmatrix}$
+    \item[9.]
+    For $\lambda = 3$:\\
+    $\Null(A - 3I) = \Null\paren{\begin{bmatrix}6 & 0 \\ 2 & 0\end{bmatrix}} = \Span\left\{\begin{bmatrix}0 \\ 1\end{bmatrix}\right\}$\\
+    For $\lambda = 9$:\\
+    $\Null(A - 9I) = \Null\paren{\begin{bmatrix}0 & 0 \\ 2 & -6\end{bmatrix}} = \Span\left\{\begin{bmatrix}3 \\ 1\end{bmatrix}\right\}$
+    \item[13.]
+    \item[15.]
+    \item[17.] $\lambda = 0, 2, -1$
+    \item[21-30.]
+    \item[31.] The characteristic polynomial for a $2 \times 2$ is of the form $(a - \lambda)(b - \lambda)$, which can have at most 2 roots. Same goes for $n \times n$ matrices.
+    \item[33.] If $A\Vec x = \lambda\Vec x$, then $\Vec x = A^{-1}\lambda\Vec x$ and $\lambda^{-1}\Vec x = A^{-1}\Vec x$
+    \item[37.] $A\Vec 1$ is a vector filled with $s$, i.e. $A\Vec 1 = s\Vec 1$, so $\Vec 1$ is an eigenvector of $A$ with eigenvalue $s$.
+\end{enumerate}
+
+\section*{5.2}
+
+\begin{enumerate}
+    \item[1.] $(2 - \lambda)(2 - \lambda) - 49 = -45 - 4\lambda + \lambda^2 = (\lambda - 9)(\lambda + 5)$\\
+    $\lambda = 9, -5$
+    \item[3.] $(3 - \lambda)(-1 - \lambda) + 2 = -1 - 2\lambda + \lambda^2$\\
+    No real solutions - Wrong, has solutions
+    \item[7.] $(5 - \lambda)(4 - \lambda) + 12 = 32 - 9\lambda + \lambda^2$\\
+    No real solutions
+    \item[11.] $(6 - \lambda)(4 - \lambda)(2 - \lambda)$
+    \item[13.] $(3 - \lambda)((6 - \lambda)(9 - \lambda) - 4) = (3 - \lambda)(50 -15\lambda + \lambda^2) = (3 - \lambda)(\lambda - 10)(\lambda - 5)$\\
+    $\lambda = 3, 5, 10$
+    \item[15.] 7, 7, 3, 5
+    \item[17.] 3, 1, 0, 1, 3
+    \item[19.] $\det(A) = \det(A - 0I) = (\lambda_1 - 0)(\lambda_2 - 0)...(\lambda_n - 0)$
+    \item[21-30.]
+\end{enumerate}
+
+\end{document}

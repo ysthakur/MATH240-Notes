@@ -1,0 +1,75 @@
+\documentclass[12pt, leqno]{article}
+% \usepackage[utf8]{inputenc}
+% \usepackage[margin=1in]{geometry}
+% \usepackage{amssymb}
+% \usepackage{amsmath}
+% \usepackage{parskip}
+
+% % For set literals, wraps in {}
+% \newcommand{\set}[1]{\{#1\}}
+% % Cardinality
+% \newcommand{\card}[1]{\lvert #1 \rvert}
+% \newcommand{\Z}{\mathbb Z}
+% \newcommand{\N}{\mathbb N}
+% \newcommand{\Q}{\mathbb Q}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\Span}{\mathrm{span}}
+
+% \DeclareMathOperator{\Col}{Col}
+% \DeclareMathOperator{\Row}{Row}
+% \DeclareMathOperator{\Null}{Null}
+% \DeclareMathOperator{\rank}{rank}
+% \DeclareMathOperator{\Image}{Im}
+% \DeclareMathOperator{\Ker}{Ker}
+
+\input{Commands.tex}
+
+\title{MATH240 Notes}
+\date{}
+\author{Yash Thakur}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\counterwithout{equation}{section}
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+
+\section{Section 1}
+
+\subsection{Section 1.4}
+
+\textbf{Relating consistency to linear combinations/spans}: Suppose $A$ is an $m \times n$ matrix made of columns $\hat a_1, \hat a_2, ..., \hat a_n$ and $\hat b$ is a vector of length $m$. Then $A \hat x = \hat b$ is consistent if and only if $\hat b \in \Span(\hat a_1, \hat a_2, ..., \hat a_n)$, i.e., $\hat b$ is a linear combination of $\hat a_1, \hat a_2, ..., \hat a_n$.
+
+\textbf{Theorem}: Let $A$ be an $m \times n$ matrix. The following are equivalent:
+\begin{enumerate}
+    \item For every $\hat b \in \R^m$, the equation $A\hat x = \hat b$ has a solution.
+    \item Every vector $\hat b \in \R^m$ can be written as a linear combination of the columns of $A$.
+    \item $\Span_\R(\text{columns of }A) = \R^m$.
+    \item $A$ has a pivot in every row.
+\end{enumerate}
+
+\section{todo}
+
+\section{todo}
+
+\input{Chapter4}
+
+\pagebreak
+
+\input{Chapter5}
+
+\pagebreak
+
+\input{Chapter6}
+
+\pagebreak
+
+\input{Chapter7}
+
+\end{document}

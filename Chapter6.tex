@@ -1,0 +1,220 @@
+\section{Orthogonality and Least Squares}
+
+\subsection{Inner Product, Length, and Orthogonality}
+
+\subsubsection*{Dot product}
+
+\textbf{Definition:} For $\Vec u, \Vec v \in \R^n$, $\Vec u = \begin{bmatrix}u_1 \\ \vdots \\ u_n \end{bmatrix}$, $\Vec v = \begin{bmatrix}v_1 \\ \vdots \\ v_n \end{bmatrix}$, define $\Vec u \cdot \Vec v = u_1v_1 + ... + u_nv_n = \Vec u^T\Vec v$
+
+Facts:
+\begin{itemize}
+    \item $\Vec u \cdot \Vec v = \Vec v \cdot \Vec u$ (commutative)
+    \item $\Vec u \cdot (\Vec v + \Vec w) = \Vec u \cdot \Vec v + \Vec u \cdot \Vec w$ (distributive)
+    \item $(c \Vec u)\cdot \Vec v = c(\Vec u \cdot \Vec v)$
+    \item $\Vec u \cdot \Vec u \geq 0$ and $\Vec u \cdot \Vec u = 0$ only if $\Vec u = \Vec 0$
+\end{itemize}
+
+\subsubsection*{Length and Distance}
+
+\textbf{Definition:} The \textbf{norm} (or length) of a vector is written as $\norm{\Vec u} = \sqrt{\Vec u \cdot \Vec u}$
+
+Properties:
+\begin{itemize}
+    \item $\norm{c\Vec u} = |c| \cdot \norm{\Vec u}$ ($c$ comes out but with an absolute value around it)
+    \item $\displaystyle \norm[\bigg]{\frac{\Vec w}{\norm{\Vec w}}} = 1$
+    \item $\norm{\Vec u - \Vec v}$ is the difference from the tip of $\Vec u$ to the tip of $\Vec v$
+\end{itemize}
+
+\textbf{Definition:} A \textbf{unit vector} is any vector $\Vec v$ such that $\norm{v} = 1$\\
+We can always find a unit vector pointing in the same direction as some vector $\Vec w$
+
+\subsubsection*{Angle}
+
+Dot product also relates to angle: $\Vec u \cdot \Vec v = \norm{\Vec u}\cdot\norm{\Vec v}\cos\theta$ ($\theta$ is angle between the vectors)\\
+So $\displaystyle \theta = \cos^{-1}\paren{\frac{\Vec u \cdot \Vec v}{\norm{\Vec u}\cdot\norm{\Vec v}}}$
+
+Special case: Iff $\displaystyle \theta = \frac{\pi}{2}$ (the vectors are perpendicular/orthogonal), then $\Vec u \cdot \Vec v = 0$\\
+We declare $\Vec u$ and $\Vec v$ to be \textbf{orthogonal} if $\Vec u \cdot \Vec v = 0$\\
+$\Vec 0$ is orthogonal to everything
+
+\subsubsection*{Orthogonal complement}
+
+\textbf{Definition:} The orthogonal complement of $W$ is $W^{\bot} = \set{\Vec v \in \R^n \mid (\forall \Vec w \in W, \Vec v \cdot \Vec w = 0) }$
+
+\textbf{Facts}:
+\begin{itemize}
+    \item $W^{\bot}$ is a vector subspace
+    \item $\Vec v \in W^{\bot}$ iff $\Vec v$ is orthogonal to every vector of some spanning set of $W$
+\end{itemize}
+
+\textbf{Theorem:} Let $A$ be an $m \times n$ matrix. Then
+\begin{enumerate}
+    \item $\Row(A)^{\bot} = \Null(A)$
+    \item $\Col(A)^{\bot} = \Null(A^T)$
+\end{enumerate}
+
+\subsection{Orthogonal sets}
+
+\textbf{Definition}: Say $S = \set{\Vec{u_1}, ..., \Vec{u_k}} \subseteq \R^n$ is a set of vectors.\\
+$S$ is an \textbf{orthogonal set} if $\Vec{u_i} \cdot \Vec{u_j}$ whenever $i \neq j$ (every pair of vectors in $S$ is orthogonal)
+
+\textbf{Theorem}: If $S$ is an orthogonal set of nonzero vectors in $\R^n$, then $S$ is linearly independent.
+
+\subsubsection*{Orthogonal bases}
+
+Using the theorem above, we get that an orthogonal set of nonzero vectors is a basis for its span. This is called an \textbf{orthogonal basis}.
+
+\textbf{Theorem:} If $B = \set{\Vec{u_1}, ..., \Vec{u_k}}$ is an orthogonal basis of $W = \Span\set{\Vec{u_1}, ..., \Vec{u_k}} \subseteq \R^n$, then for any $\Vec y \in W$,\\
+$\displaystyle \left[\Vec y\right]_B = \begin{bmatrix}c_1 \\ \vdots \\ c_k\end{bmatrix}$ where $\displaystyle c_i = \frac{ \Vec y \cdot \Vec{u_i}}{\Vec{u_i} \cdot \Vec{u_i}}$
+
+In order to tell if a vector is in the span of an orthogonal basis, you can try to get its coordinates relative to the orthogonal basis, and if it doesn't work out, you know it's not in the span.
+
+\subsubsection*{Orthogonal projection}
+
+\textbf{Definition:} The orthogonal projection of $\Vec y$ onto $\Vec u$ is $\displaystyle \hat y = \Proj{\Vec u}{\Vec y} = \frac{\Vec y \cdot \Vec u}{\Vec u \cdot \Vec u}$
+
+It has some useful properties:
+\begin{enumerate}
+    \item It's a scalar multiple of $\Vec u$
+    \item $\hat y \cdot \Vec u = \Vec y \cdot \Vec u$, which means $(\Vec y - \hat y) \cdot \Vec u = 0$, which means $\Vec y - \hat y$ is orthogonal to $\Vec u$
+    \item $\hat y$ is the only scalar with the above two properties
+\end{enumerate}
+
+So this breaks $\Vec y$ into the component that's parallel to $\Vec u$ ($\hat y$) and the component that's perpendicular to $\Vec u$ ($\Vec y - \hat y$).
+
+\subsubsection*{Orthonormal sets}
+
+\textbf{Definition:} An orthonormal set is an orthogonal set where the norm of all the vectors is 1, i.e. $\Vec u \cdot \Vec u = 1$ for all $\Vec u$ in that set.
+
+You can get an orthonormal set from an orthogonal set by normalizing the vectors in it.
+
+\textbf{Fact:} An $m \times n$ matrix $U$ has orthonormal columns \emph{iff} $U^TU = I$
+
+\textbf{Fact:} If $U$ has orthonormal columns, then
+\begin{itemize}
+    \item $\norm{\Vec x} = \norm{U\Vec x}$ ($U$ preserves length)
+    \item $\Vec x \cdot \Vec y = (U\Vec x) \cdot (U\Vec y)$ ($U$ preserves angles)
+    \item $U^T = U^{-1}$
+\end{itemize}
+
+\textbf{Definition:} When $U$ is a square matrix whose columns are \emph{orthonormal}, $U$ is called an \textbf{\emph{orthogonal} matrix} (\emph{not} ``orthonormal'' matrix, there's no word for a matrix whose columns are orthogonal but not orthonormal)
+
+\subsection{Orthogonal projections in $\R^2$}
+
+Let $W \subseteq \R^n$ be a subspace, say $W = \Span\set{\Vec{u_1}, ..., \Vec{u_k}}$\\
+Let $\Vec{y} \in \R^n$\\
+We want to find a vector $\Proj{W}{\Vec y}$ such that
+\begin{enumerate}
+    \item $\Proj{W}{\Vec y} \in W$ and
+    \item $\Vec y - \Proj{W}{\Vec y} \in W^{\bot}$
+\end{enumerate}
+i.e., we want to decompose $\Vec y$ into two orthogonal components.
+
+\subsubsection*{What if $\set{\Vec{u_1}, ..., \Vec{u_k}}$ were an orthogonal basis of $W$?}
+
+Define $\displaystyle \Proj{W}{\Vec y} = \sum_{i=1}^k \Proj{\Vec{u_i}}{\Vec y}$\\
+\textbf{Fact:} This orthogonal projection is unique.
+
+\textbf{Fact:} $\Vec y = \Proj{W}{\Vec y} \Leftrightarrow \Vec y \in W$
+
+\subsubsection*{Orthogonal projections as approximations}
+
+\textbf{Theorem:}\\
+Let $W \subseteq \R^n$ be a subspace\\
+Let $\Vec y \in \R^n$\\
+Then $\Proj{W}{\Vec y}$ is the vector in $W$ that's closest to $\Vec y$\\
+In other words, $\norm{\Vec y - \Proj{W}{\Vec y}} < \norm{\Vec y - \Vec w}$ for any vector $\Vec w$ in $W$ such that $\Vec w \neq \Proj{W}{\Vec y}$
+
+If you want to solve a solution $A\Vec x = \Vec b$ but it's inconsistent, you can solve $A\Vec x = \Proj{W}{\Vec b}$ instead to get the closest thing to a solution.
+
+\subsubsection*{Orthogonal projections and orthonormal bases}
+
+\textbf{Theorem:}\\
+Let $\set{\Vec{u_1}, ..., \Vec{u_k}}$ be an orthonormal basis of $W \subseteq \R^n$
+\begin{enumerate}
+    \item For any $\Vec y \in \R^n$, $\displaystyle \Proj{W}{\Vec y} = \sum_{i=1}^k (\Vec y \cdot \Vec{u_i}) \Vec{u_i}$
+    \item Set $U = \begin{bmatrix}\Vec{u_1} & \hdots & \Vec{u_k}\end{bmatrix}$. Then for any $\Vec y \in \R^n$, $\Proj{W}{\Vec y} = UU^T\cdot \Vec y$
+\end{enumerate}
+
+\subsection{The Gram-Schmidt Process}
+
+Used to iteratively turn a basis into an orthogonal basis.
+
+Suppose you have a basis $\set{\Vec{x_1}, ..., \Vec{x_n}}$\\
+Steps:
+\begin{itemize}
+    \item $\Vec{v_1} = \Vec{x_1}$
+    \item $\Vec{v_2} = \Vec{x_2} - \Proj{\Vec{v_1}}{\Vec{x_2}}$ (can scale $\Vec{v_2}$ if you want to make it nicer)
+    \item $\Vec{v_3} = \Vec{x_3} - \Proj{\Vec{v_1}}{\Vec{x_3}} - \Proj{\Vec{v_2}}{\Vec{x_3}}$
+    \item ...
+    \item $\Vec{v_k} = \Vec{x_k} - \Proj{\Span\set{\Vec{v_1}, ..., \Vec{v_{k-1}}}}{\Vec{x_k}} = \Vec{x_k} - \Proj{\Vec{v_1}}{\Vec{x_k}} - ... - \Proj{\Vec{v_{k-1}}}{\Vec{x_k}}$
+\end{itemize}
+The new orthogonal basis is $\set{\Vec{v_1}, ..., \Vec{v_n}}$
+
+This produces $\Vec{v_1}, ..., \Vec{v_n}$ in such a way that each $\Vec{v_k} \in \Span\set{\Vec{x_1}, ..., \Vec{x_k}}$
+
+\subsubsection*{QR Factorization}
+
+Take those vectors produced by the Gram process and normalize: $\displaystyle \Vec{u_i} = \frac{\Vec{v_i}}{\norm{\Vec{v_i}}}$\\
+Set $\displaystyle Q = \begin{bmatrix}\Vec{u_1} & ... & \Vec{u_n}\end{bmatrix}$\\
+Then there is an $n \times n$ upper triangular matrix $R$ with positive diagonal entries (so invertible) such that $A = QR$ (where the columns of $A$ were $\Vec{x_1}, ..., \Vec{x_n}$)
+
+\subsection{Least-Squares Problems}
+
+If an equation $A\Vec x = \Vec b$ doesn't have a solution, you want the best approximate solution. Least squares is a way of judging how good a solution is.
+
+We want $\hat{x} \in \R^n$ such that $\norm{A\hat x - \Vec b} \leq \norm{A\Vec x - \Vec b}$ for all $\Vec x \in \R^n$
+
+Set $\displaystyle \hat b = \Proj{\Col(A)}{\Vec b}$ so that $A\hat x = \hat b$ for at least 1 $\hat x \in \R^n$.
+
+\textbf{Definition:} Any such $\hat x$ is called a \textbf{least squares solution} of $A\Vec x = \Vec b$
+
+The \textbf{least squares error} is $\norm{A\hat x - \Vec b}$
+
+\textbf{Fact:} Iff $A\hat x = \hat b$, then $A^T\Vec b = A^TA\hat x$
+
+\textbf{Normal equation} for $A\Vec x = \Vec b$: $A^TA\Vec x = A^T\Vec b$
+
+\textbf{Summary:} To get least squares solutions of $A\Vec x = \Vec b$, we solve $A^TA\Vec x = A^T\Vec b$ (normal equation)
+
+The set of solutions to the normal equation is the same as the set of least squares solutions.
+
+\textbf{Fact:} $\Null(A^TA) = \Null(A)$
+
+\textbf{Theorem:} For an $m \times n$ matrix $A$, the following are equivalent:
+\begin{enumerate}
+    \item $A^TA$ is invertible
+    \item The columns of $A$ are linearly independent
+    \item $A\Vec x = \Vec b$ has a unique least squares solution for any $\Vec b \in \R^m$
+\end{enumerate}
+
+$A^TA$ is called the \textbf{Gram Matrix}. If $A$ is diagonal, then $A^TA$ is a diagonal matrix.
+
+\textbf{Fact:} If $A$ has orthogonal columns, then the least squares solution is $\Proj{\Col(A)}{\Vec b}$
+
+When $A$ has linearly independent columns, you can do QR factorization to get $Q$ and $R$. Then the least squares solution to $A\Vec x = \Vec b$ is $\hat x = R^{-1}Q^T\Vec{b}$ and you're done.
+
+\subsection{Linear regression}
+
+\subsubsection*{Linear relationships}
+
+Motivation: Trying to find line of best for some data $(x_1, y_1), ..., (x_n, y_n)$. Line of best fit is in the form $y = \beta_0 + \beta_1 x$
+
+When trying to find the line of best fit, we want to choose a line where the sum of the squares of the vertical distance between the points and the line is minimized. Those vertical distances between the points and the line of best fit are called \textbf{residuals}.
+
+If the points really were on that line of best fit, they'd satisfy the equation $X\Vec{\beta} = \Vec{y}$, where\\
+$\displaystyle X = \begin{bmatrix}1 & x_1 \\ \vdots & \vdots \\ 1 & x_n\end{bmatrix}$, $\Vec{\beta} = \begin{bmatrix}\beta_0 \\ \beta_1\end{bmatrix}$, and $\Vec{y} = \begin{bmatrix}y_1 \\ \vdots \\ y_n\end{bmatrix}$
+
+$X$ is called the \textbf{design matrix}, $\Vec{y}$ is called the \textbf{observation vector}.
+
+We find the least squares solution by solving $X^TX\Vec{\beta} = X^T\Vec y$ instead of $X\Vec{\beta} = \Vec y$.
+
+\subsubsection*{Other regressions}
+
+Best-fit question is linear even when model is a curve. For example, if you think some data can be best represented by something in the form $y = \beta_0 + \beta_1 x + \beta_2 x^2$, then you can set $X = \begin{bmatrix}1 & x_1 & x_1^2 \\ \vdots & \vdots & \vdots \\ 1 & x_n & x_n^2\end{bmatrix}$ and use $\Vec{\beta} = \begin{bmatrix}\beta_0 \\ \beta_1 \\ \beta_2\end{bmatrix}$
+
+You can do this with trig functions and stuff too. As long as it's in the form $y = \beta_0f_0(x) + ... + \beta_kf_k(x)$ (for some known $f_0, ..., f_k$, it's still a linear equation in $\beta_0, ..., \beta_k$). Just set $X = \begin{bmatrix}f_0(x_1) & \hdots & f_k(x_1) \\ \vdots & \ddots & \vdots \\ f_0(x_n) & \hdots & f_k(x_n)\end{bmatrix}$ and $\Vec{\beta} = \begin{bmatrix}\beta_0 \\ \vdots \\ \beta_k\end{bmatrix}$
+
+\subsubsection*{Multivariate models}
+
+Suppose you now have 2 independent variables $u$ and $v$ and your model needs to look like $y = \beta_0 + \beta_1 u + \beta_2 v + \beta_3 uv$. You can still do the same thing, just set $X = \begin{bmatrix}1 & u_1 & v_1 & u_1v_1 \\ \vdots & \vdots & \vdots & \vdots \\ 1 & u_n & v_n & u_nv_n \end{bmatrix}$ and $\Vec{\beta} = \begin{bmatrix}\beta_0 \\ \vdots \\ \beta_4\end{bmatrix}$

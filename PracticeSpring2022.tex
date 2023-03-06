@@ -1,0 +1,170 @@
+\documentclass[leqno]{article}
+
+\input{Commands}
+
+\begin{document}
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item
+        $\begin{bmatrix}
+        3 & -1 & 0 & 2 & 6 \\
+        0 & 1 & -2 & 5 & 2 \\
+        0 & 0 & 4 & 4 & -2
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        3 & 0 & -2 & 7 & 8 \\
+        0 & 1 & -2 & 5 & 2 \\
+        0 & 0 & 4 & 4 & -2
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        3 & 0 & 0 & 9 & 7 \\
+        0 & 1 & 0 & 7 & 1 \\
+        0 & 0 & 4 & 4 & -2
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        3 & 0 & 0 & 9 & 7 \\
+        0 & 1 & 0 & 7 & 1 \\
+        0 & 0 & 1 & 1 & -\frac 1 2
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        1 & 0 & 0 & 3 & \frac 7 3 \\
+        0 & 1 & 0 & 7 & 1 \\
+        0 & 0 & 1 & 1 & -\frac 1 2
+        \end{bmatrix}$\\
+        $x_1 = \frac 7 3 - 3x_4$\\
+        $x_2 = 1 - 7x_4$\\
+        $x_3 = -\frac 1 2 - x_4$\\
+        Parametric: $\displaystyle \begin{bmatrix}\frac 7 3 \\ 1 \\ -\frac 1 2 \\ 0\end{bmatrix} + \begin{bmatrix}-3 \\ -7 \\ -1 \\ 1\end{bmatrix}x_4$\\
+        No, doesn't have a unique solution
+        \item
+        $\begin{bmatrix}
+        6 & 0 & -4 \\
+        -1 & 1 & -4 \\
+        5 & 1 & 2
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        6 & 0 & -4 \\
+        0 & 6 & -28 \\
+        0 & 1 & \frac{16}{3}
+        \end{bmatrix} \Rightarrow \begin{bmatrix}
+        6 & 0 & -4 \\
+        0 & 6 & -28 \\
+        0 & 0 & -60
+        \end{bmatrix}$\\
+        It has pivots in each column, so there are no nontrivial solutions to $C\Vec x = \Vec 0$. Therefore, the columns of $C$ are linearly independent.
+        \item
+        \begin{enumerate}
+            \item FALSE
+            \item FALSE
+            \item TRUE
+        \end{enumerate}
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}
+        \item
+        $\paren{\begin{vmatrix}\frac{-1}{2} & -\frac{\sqrt 3}{2} \\ \frac{\sqrt 3}{2} & \frac{-1}{2}\end{vmatrix}
+        \begin{vmatrix}1 & 0 \\ 0 & -1\end{vmatrix}}^2 = (\frac 1 4 + \frac 3 4)^2 = 1$
+        \item Since $A$ has a nonzero determinant, it's invertible and so is both onto and 1-1.
+        \item $\begin{bmatrix}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0\\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0\end{bmatrix}$
+        \item \begin{enumerate}
+            \item FALSE
+            \item FALSE
+            \item TRUE
+        \end{enumerate}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item $\begin{vmatrix}-1 & 5 \\ 3 & -5\end{vmatrix}\begin{vmatrix}2 & -2 \\ 7 & -3\end{vmatrix} = (5 - 15)(-6 + 14) = -10(8) = -80$\\
+        Volume's 80
+        \item $\det(B) = \begin{vmatrix}
+        3 & 8 & 3 \\
+        -1 & 0 & 6 \\
+        1 & 5 & 0
+        \end{vmatrix} = \begin{vmatrix}
+        0 & 8 & 21 \\
+        -1 & 0 & 6 \\
+        0 & 5 & 6
+        \end{vmatrix} = 1(48 - 105) = -57$\\
+        $\displaystyle \det(B^{-1}) = \frac 1 {-57}$
+        \item \begin{enumerate}
+            \item TRUE
+            \item FALSE ($\det(7C) = 7^5 \cdot \det(C)$)
+        \end{enumerate}
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item
+        \begin{enumerate}
+            \item 3
+            \item 3
+            \item 2
+            \item $\dim(\Col(A)) + \dim(\Null(A)) = 5$
+        \end{enumerate}
+        \item -3, 6, 0, 1, 0
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item $\begin{bmatrix}9 \\ -4 \\ 3\end{bmatrix}$
+            \item Inverse of matrix made by elements of $B$: $\begin{bmatrix}-40 & 16 & 9 \\ 13 & -5 & -3 \\ 5 & -2 & -1\end{bmatrix}$
+            \item $\displaystyle \underset{B \leftarrow S}{P}\begin{bmatrix}3 \\ -5 \\ 0\end{bmatrix} = \begin{bmatrix}-200 \\ 64 \\ 25\end{bmatrix}$
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item TRUE
+            \item TRUE, can be 5 at most
+            \item FALSE, isomorphic to $\R^{n+1}$
+        \end{enumerate}
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item $\begin{vmatrix}
+            2 - \lambda & -3 & -4 \\
+            0 & -\lambda & -2 \\
+            0 & 1 & 3 - \lambda
+            \end{vmatrix} = (2 - \lambda)((-\lambda)(3 - \lambda) + 2) = (2 - \lambda)(\lambda^2 -3\lambda + 2) = -(\lambda - 1)(\lambda - 2)^2$\\
+            Eigenvalues: 1 (algebraic multiplicity 1), 2 (algebraic multiplicity 2)
+            \item Find 2-eigenvalues:\\
+            $\begin{bmatrix}
+            0 & -3 & -4 \\
+            0 & -2 & -2 \\
+            0 & 1 & 1
+            \end{bmatrix} \Rightarrow \begin{bmatrix}
+            0 & 0 & -1 \\
+            0 & 0 & 0 \\
+            0 & 1 & 1
+            \end{bmatrix} \Rightarrow \begin{bmatrix}
+            0 & 0 & -1 \\
+            0 & 0 & 0 \\
+            0 & 1 & 0
+            \end{bmatrix} \Rightarrow \begin{bmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & -1 \\
+            0 & 0 & 0
+            \end{bmatrix}$\\
+            There is only one 2-eigenvector $\paren{\left[\begin{smallmatrix}1 \\ 0 \\ 0\end{smallmatrix}\right]}$, and only one 1-eigenvector (since the eigenvalue 1 had an algebraic multiplicity of 1), so $A$ has only two linearly independent eigenvectors, but $A$ is a $3 \times 3$ matrix so it would need 3 linearly independent eigenvectors to be diagonalizable. Therefore, $A$ is not diagonalizable.
+            \item NO, because it's not even diagonalizable.
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item FALSE
+            \item FALSE, because if $1+3i$ and $4+2i$ are eigenvalues, so are their conjugates, giving you 4 eigenvalues. But this is only a $2 \times 2$ matrix, so you can only have 2 eigenvalues.
+        \end{enumerate}
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item Find orthogonal basis with Gram-Schmidt:\\
+            $\Vec x_1 = \begin{bmatrix}2 \\ 2 \\ -1 \\ 3\end{bmatrix}$, $\Vec x_2 = \begin{bmatrix}1 \\ 9 \\ 2 \\ 6\end{bmatrix}$\\
+            $\Vec w_1 = \Vec x_1$\\
+            $\displaystyle \Vec w_2 = \Vec x_2 - \Proj{\Vec w_1}{\Vec x_2} = \Vec x_2 - \frac{\Vec w_1 \cdot \Vec x_2}{\Vec w_1 \cdot \Vec w_1} \cdot \Vec w_1 = \Vec x_2 - \frac{36}{18} \cdot \Vec w_1 = \begin{bmatrix}1 \\ 9 \\ 2 \\ 6\end{bmatrix} - \begin{bmatrix}4 \\ 4 \\ -2 \\ 6\end{bmatrix} = \begin{bmatrix}-3 \\ 5 \\ 4 \\ 0\end{bmatrix}$\\
+            Now normalize:\\
+            $\displaystyle \frac{\Vec w_1}{\norm{\Vec w_1}} = \frac{\Vec w_1}{\sqrt{18}} = \begin{bmatrix}\frac{\sqrt{2}}{3} \\ \frac{\sqrt{2}}{3} \\ \frac{-1}{3\sqrt{2}} \\ \frac{1}{\sqrt 2}\end{bmatrix}$, $\displaystyle \frac{\Vec w_2}{\norm{\Vec w_2}} = \frac{\Vec w_2}{\sqrt{50}} = \begin{bmatrix}\frac{-3}{5\sqrt 2} \\ \frac{1}{\sqrt 2} \\ \frac{2\sqrt 2}{5} \\ 0\end{bmatrix}$\\
+            Orthonormal basis for $W$: $\set{\begin{bmatrix}\frac{\sqrt{2}}{3} \\ \frac{\sqrt{2}}{3} \\ \frac{-1}{3\sqrt{2}} \\ \frac{1}{\sqrt 2}\end{bmatrix}, \begin{bmatrix}\frac{-3}{5\sqrt 2} \\ \frac{1}{\sqrt 2} \\ \frac{2\sqrt 2}{5} \\ 0\end{bmatrix}}$
+            \item $\Col(A)^{\bot} = \Null(A^T)$\\
+            $A^T = \begin{bmatrix}2 & 2 & -1 & 3 \\ 1 & 9 & 2 & 6\end{bmatrix} \Rightarrow \begin{bmatrix}2 & 2 & -1 & 3 \\ 0 & 8 & \frac 3 2 & \frac 9 2\end{bmatrix} \Rightarrow \begin{bmatrix}2 & 2 & -1 & 3 \\ 0 & 16 & 3 & 9\end{bmatrix} \Rightarrow \begin{bmatrix}-8 & 0 & 11 & -15 \\ 0 & 16 & 3 & 9\end{bmatrix}$\\
+            Basis for $W^{\bot}$: $\set{\begin{bmatrix}\frac{11}{8} \\ -\frac{3}{16} \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}-\frac{15}{8} \\ -\frac{9}{16} \\ 0 \\ 1\end{bmatrix}}$
+        \end{enumerate}
+        \item
+        $X = \begin{bmatrix}1 & 1 & 1 \\ 1 & -1 & 1 \\ 1 & 4 & 16 \\ 1 & 5 & 25 \\ 1 & 7 & 49\end{bmatrix}$, $\beta = \begin{bmatrix}c \\ b \\ a\end{bmatrix}$, $\Vec y = \begin{bmatrix}2 \\ 3 \\ 1 \\ 2 \\ -3\end{bmatrix}$\\
+        $X^T = \begin{bmatrix}1 & 1 & 1 & 1 & 1 \\ 1 & -1 & 4 & 5 & 7 \\ 1 & 1 & 16 & 25 & 49\end{bmatrix}$\\
+        $X^TX\beta = X^T\Vec y$\\
+        $\begin{bmatrix}5 & 16 & 92 \\ 16 & 92 & 532\\ 92 & 532 & 2 + 256 + 625 + 49 \cdot 49\end{bmatrix}\begin{bmatrix}c \\ b \\ a\end{bmatrix} = \begin{bmatrix}5 \\ -8 \\ -146\end{bmatrix}$\\
+        why are the numbers so big
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

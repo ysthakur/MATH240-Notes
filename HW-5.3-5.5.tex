@@ -1,0 +1,282 @@
+\documentclass[leqno]{article}
+
+\input{Commands}
+
+\begin{document}
+
+\section*{5.3}
+
+\begin{enumerate}
+    \item[1.]
+    $\displaystyle \begin{bmatrix}2 & 5 \\ 1 & 3\end{bmatrix}\begin{bmatrix}81 & 0 \\ 0 & 1\end{bmatrix}\begin{bmatrix}3 & -5 \\ -1 & 2\end{bmatrix} = \begin{bmatrix}162 & 5 \\ 81 & 3\end{bmatrix}\begin{bmatrix}3 & -5 \\ -1 & 2\end{bmatrix} = \begin{bmatrix}481 & -800 \\ 240 & -399\end{bmatrix}$
+    \item[3.]
+    $\displaystyle \begin{bmatrix}1 & 0 \\ 3 & 1\end{bmatrix}\begin{bmatrix}a^k & 0 \\ 0 & b^k\end{bmatrix}\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+    = \begin{bmatrix}a^k & 0 \\ 3a^k & b^k\end{bmatrix}\begin{bmatrix}1 & 0 \\ -3 & 1\end{bmatrix}
+    = \begin{bmatrix}a^k & 0 \\ 3a^k - 3b^k & b^k\end{bmatrix}$
+    \item[5.]
+    Eigenvalues: $5, 1, 1$\\
+    Eigenvector for 5:
+    \begin{flalign*}
+        A - 5I &= \begin{bmatrix}-3 & 2 & 1 \\ 1 & -2 & 1 \\ 1 & 2 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ -3 & 2 & 1 \\ 1 & 2 & -3\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ 0 & -4 & 4 \\ 0 & 4 & -4\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ 0 & 1 & -1 \\ 0 & 4 & -4\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & -1 \\ 0 & 1 & -1 \\ 0 & 0 & 0\end{bmatrix}
+    \end{flalign*}
+    $\Null(A - 5I) = \Span\paren{{\begin{bmatrix}1 \\ 1 \\ 1\end{bmatrix}}}$
+    
+    Eigenvectors for 1:
+    \begin{flalign*}
+        A - I &= \begin{bmatrix}1 & 2 & 1 \\ 1 & 2 & 1 \\ 1 & 2 & 1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & 2 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{bmatrix} &
+    \end{flalign*}
+    $\Null(A - I) = \Span\paren{{\begin{bmatrix}-1 \\ 0 \\ 1\end{bmatrix}}, {\begin{bmatrix}-2 \\ 1 \\ 0\end{bmatrix}}}$
+    
+    \item[7.]
+    $\det(\lambda) = \begin{vmatrix}1-\lambda & 0 \\ 6 & -1-\lambda\end{vmatrix} = (1 - \lambda)(-1 - \lambda)$\\
+    Eigenvalues: 1, -1\\
+    $D = \begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}$\\
+    Eigenvector for 1:\\
+    $A - I = \begin{bmatrix}0 & 0\\6 & -2\end{bmatrix}$\\
+    $\Null(A - I) = \Span\paren{\begin{bmatrix}\frac1 3\\ 1\end{bmatrix}}$\\
+    Eigenvector for -1:\\
+    $A + I = \begin{bmatrix}2 & 0\\6 & 0\end{bmatrix}$\\
+    $\Null(A + I) = \Span\paren{\begin{bmatrix}0\\ 1\end{bmatrix}}$\\
+    $D = \begin{bmatrix}1 & 0\\0 & -1\end{bmatrix}$\\
+    $P = \begin{bmatrix}\frac 1 3 & 0\\1 & 1\end{bmatrix}$
+
+    \item[9.]
+    $\det(\lambda) = \begin{vmatrix}3-\lambda & -1 \\ 1 & 5-\lambda\end{vmatrix} = (3 - \lambda)(5 - \lambda) + 1 = 16 - 8\lambda + \lambda^2 = (\lambda - 4)^2$\\
+    Eigenvalues: 4, 4\\
+    $D = \begin{bmatrix}4 & 0 \\ 0 & 4\end{bmatrix}$\\
+    Eigenvectors:\\
+    $A - 4I = \begin{bmatrix}-1 & -1\\1 & 1\end{bmatrix}$\\
+    $\Null(A - I) = \Span\paren{\begin{bmatrix}-1\\ 1\end{bmatrix}}$\\
+    Not diagonalizable
+    
+    \item[11.]
+    Eigenvector for $\lambda = 1$:
+    \begin{flalign*}
+        A - I &= \begin{bmatrix}-2 & 4 & -2 \\ -3 & 3 & 0 \\ -3 & 1 & 2\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ -3 & 3 & 0 \\ -3 & 1 & 2\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ 0 & -3 & 3 \\ 0 & -5 & 5\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & 1 \\ 0 & 1 & -1 \\ 0 & -5 & 5\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & -1 \\ 0 & 1 & -1 \\ 0 & 0 & 0\end{bmatrix}
+    \end{flalign*}
+    $\Null(A - I) = \Span\paren{\begin{bmatrix}1 \\ 1 \\ 1\end{bmatrix}}$\\
+    Eigenvector for $\lambda = 2$:
+    \begin{flalign*}
+        A - 2I &= \begin{bmatrix}-3 & 4 & -2 \\ -3 & 2 & 0 \\ -3 & 1 & 1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-3 & 4 & -2 \\ 0 & -2 & 2 \\ 0 & -3 & 3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-3 & 4 & -2 \\ 0 & 1 & -1 \\ 0 & -3 & 3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-3 & 0 & 2 \\ 0 & 1 & -1 \\ 0 & 0 & 0\end{bmatrix} &
+    \end{flalign*}
+    $\Null(A - 2I) = \Span\paren{\begin{bmatrix}\frac 2 3 \\ 1 \\ 1\end{bmatrix}}$\\
+    Eigenvector for $\lambda = 3$:
+    \begin{flalign*}
+        A - 3I &= \begin{bmatrix}-4 & 4 & -2 \\ -3 & 1 & 0 \\ -3 & 1 & 0\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-4 & 4 & -2 \\ -3 & 1 & 0 \\ 0 & 0 & 0\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-4 & 4 & -2 \\ 0 & -2 & \frac 3 2 \\ 0 & 0 & 0\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}-4 & 0 & 1 \\ 0 & -2 & \frac 3 2 \\ 0 & 0 & 0\end{bmatrix} & 
+    \end{flalign*}
+    $\displaystyle \Null(A - 3I) = \Span\paren{\begin{bmatrix}\frac 1 4 \\ \frac 3 4 \\ 1\end{bmatrix}}$\\
+    $D = \begin{bmatrix}1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3\end{bmatrix}$\\
+    $P = \begin{bmatrix}1 & \frac 2 3 & \frac 1 4\\ 1 & 1 & \frac 3 4 \\ 1 & 1 & 1\end{bmatrix}$
+
+    \item[13.]
+    Eigenvectors for $\lambda = 5$:
+    \begin{flalign*}
+        A - 5I &= \begin{bmatrix}-3 & 2 & -1 \\ 1 & -2 & -1 \\ -1 & -2 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}0 & -4 & -4 \\ 1 & -2 & -1 \\ 0 & -4 & -4\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & -1 \\ 0 & -4 & -4 \\ 0 & -4 & -4\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & -2 & -1 \\ 0 & 1 & 1 \\ 0 & -4 & -4\end{bmatrix} \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 0\end{bmatrix}
+    \end{flalign*}
+    $\displaystyle \Null(A - 5I) = \Span\paren{\begin{bmatrix}-1 \\ -1 \\ 1\end{bmatrix}}$\\
+    Eigenvectors for $\lambda = 1$:
+    \begin{flalign*}
+        A - 5I &= \begin{bmatrix}1 & 2 & -1 \\ 1 & 2 & -1 \\ -1 & -2 & 1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & 2 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0\end{bmatrix} &
+    \end{flalign*}
+    $\displaystyle \Null(A - I) = \Span\paren{\begin{bmatrix}-2 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}1 \\ 0 \\ 1\end{bmatrix}}$\\
+    $D = \begin{bmatrix}5 & 0 & 0\\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}$\\
+    $P = \begin{bmatrix}-1 & -2 & 1\\ -1 & 1 & 0 \\ 1 & 0 & 1\end{bmatrix}$
+
+    \item[17.]
+    Eigenvalues: 4, 4, 5\\
+    Eigenvectors for $\lambda = 4$:
+    \begin{flalign*}
+        A - 4I &= \begin{bmatrix}0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0\end{bmatrix} & \\
+    \end{flalign*}
+    $\displaystyle \Null(A - I) = \Span\paren{\begin{bmatrix}0 \\ 1 \\ 0\end{bmatrix}}$\\
+    Not diagonalizable because there's only one eigenvector with eigenvalue 4.
+    
+    \item[19.]
+    Eigenvalues: 5, 3, 2, 2
+    Eigenvectors for $\lambda = 2$:
+    \begin{flalign*}
+        A - 2I &= \begin{bmatrix}3 & -3 & 0 & 9 \\ 0 & 1 & 1 & -2 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}3 & 0 & 3 & 3 \\ 0 & 1 & 1 & -2 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}1 & 0 & 1 & 1 \\ 0 & 1 & 1 & -2 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0\end{bmatrix} &
+    \end{flalign*}
+    $\displaystyle \Null(A - 2I) = \Span\paren{\begin{bmatrix}-1 \\ -1 \\ 1 \\ 0\end{bmatrix}, \begin{bmatrix}-1 \\ 2 \\ 0 \\ 1\end{bmatrix}}$\\
+    Eigenvectors for $\lambda = 3$:
+    \begin{flalign*}
+        A - 3I &= \begin{bmatrix}2 & -3 & 0 & 9 \\ 0 & 0 & 1 & -2 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}2 & -3 & 0 & 9 \\ 0 & 0 & 1 & -2 \\ 0 & 0 & 0 & -2 \\ 0 & 0 & 0 & -1\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}2 & -3 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -2 \\ 0 & 0 & 0 & 0\end{bmatrix} &
+    \end{flalign*}
+    $\displaystyle \Null(A - 3I) = \Span\paren{\begin{bmatrix}\frac 3 2 \\ 1 \\ 0 \\ 0\end{bmatrix}}$\\
+    Eigenvectors for $\lambda = 5$:
+    \begin{flalign*}
+        A - 5I &= \begin{bmatrix}0 & -3 & 0 & 9 \\ 0 & -2 & 1 & -2 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}0 & 1 & 0 & -3 \\ 0 & -2 & 1 & -2 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}0 & 1 & 0 & -3 \\ 0 & 0 & 1 & -8 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & -3 & 0 \\ 0 & 0 & 0 & -3\end{bmatrix} & \\
+        &\Rightarrow \begin{bmatrix}0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & -3\end{bmatrix} &
+    \end{flalign*}
+    $\displaystyle \Null(A - 5I) = \Span\paren{\begin{bmatrix}1 \\ 0 \\ 0 \\ 0\end{bmatrix}}$\\
+    $D = \begin{bmatrix}2 & 0 & 0 & 0\\ 0 & 2 & 0 & 0 \\ 0 & 0 & 3 & 0 \\ 0 & 0 & 0 & 5\end{bmatrix}$\\
+    $P = \begin{bmatrix}-1 & -1 & \frac 3 2 & 1 \\ -1 & 2 & 1 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{bmatrix}$
+
+    \item[21-28.]
+    \item[29.]
+    Yes, because it has 5 eigenvalues and eigenvectors.
+    \item[31.]
+    No. The third eigenvalue must have at least one eigenvector, meaning that there are 4 eigenvectors in all, so $A$ would be diagonalizable.
+    \item[33.]
+    If $A$ has $n$ linearly independent eigenvectors, it's diagonalizable, so there exist a $P$ and $D$ such that $A = PDP^{-1}$. Then $A^{-1} = (PDP^{-1})^{-1} = (DP^{-1})^{-1}P^{-1} = PD^{-1}P^{-1}$
+\end{enumerate}
+
+\section*{5.4}
+
+\begin{enumerate}
+    \item[1.]
+    $\begin{bmatrix}3 & -1 & 0 \\ -5 & 6 & 4 \\ 0 & 0 & 0\end{bmatrix}$
+
+    \item[3.]
+    $\begin{bmatrix}2 & 0 & 5 \\ 0 & 3 & 0 \\ 0 & 4 & -6\end{bmatrix}$\\
+    (wrong, should've gotten the transpose of this)
+
+    \item[5.]
+    $2\Vec{b_1} + 4\Vec{b_3} + 15\Vec{b_1} - 15\Vec{b_2} + 5\Vec{b_3} = 17\Vec{b_1} - 15\Vec{b_2} + 9\Vec{b_3}$
+
+    \item[7.]
+    $P = \begin{bmatrix}3 & 1 \\ -1 & 3\end{bmatrix}$\\
+    $\displaystyle P^{-1} = \frac{1}{10}\begin{bmatrix}3 & -1 \\ 1 & 3\end{bmatrix}$\\
+    $\displaystyle D = P^{-1}AP = \frac{1}{10}\begin{bmatrix}3 & -1 \\ 1 & 3\end{bmatrix}
+    \begin{bmatrix}4 & 9 \\ 1 & 4\end{bmatrix}
+    \begin{bmatrix}3 & 1 \\ -1 & 3\end{bmatrix} = \frac{1}{10}
+    \begin{bmatrix}11 & 23 \\ 7 & 21\end{bmatrix}
+    \begin{bmatrix}3 & 1 \\ -1 & 3\end{bmatrix} = \frac{1}{10}
+    \begin{bmatrix}10 & 80 \\ 0 & 70\end{bmatrix} = \begin{bmatrix}1 & 8 \\ 0 & 7\end{bmatrix}$
+
+    \item[9.]
+    Find eigenvalues:
+    $\det(A - \lambda I) = \begin{vmatrix}-\lambda & 1 \\ -3 & 4 - \lambda\end{vmatrix} = -\lambda(4 - \lambda) + 3 = -4\lambda + \lambda^2 + 3 = (\lambda - 1)(\lambda - 3)$\\
+    Eigenvalues are 1, 3\\
+    Eigenvectors for $\lambda = 1$:\\
+    $\begin{bmatrix}-1 & 1 \\ -3 & 3\end{bmatrix} \Rightarrow \begin{bmatrix}-1 & 1 \\ 0 & 0\end{bmatrix}$\\
+    Eigenvector: $\begin{bmatrix}1 \\ 1\end{bmatrix}$\\
+    Eigenvectors for $\lambda = 3$:
+    $\begin{bmatrix}-3 & 1 \\ -3 & 1\end{bmatrix} \Rightarrow \begin{bmatrix}-3 & 1 \\ 0 & 0\end{bmatrix}$\\
+    Eigenvector: $\begin{bmatrix}\frac 1 3 \\ 1\end{bmatrix}$\\
+    Basis is those two eigenvectors
+
+    \item[11.]
+    $\det(A - \lambda I) = \begin{vmatrix}4 - \lambda & -2 \\ -1 & 3 - \lambda\end{vmatrix} = (4 - \lambda)(3 - \lambda) - 2 = 10 - 7\lambda + \lambda^2 = (\lambda - 5)(\lambda - 2)$\\
+    Eigenvalues: 2, 5\\
+    Eigenvectors for $\lambda = 2$:\\
+    $\begin{bmatrix}2 & -2 \\ -1 & 1\end{bmatrix} \Rightarrow \begin{bmatrix}2 & -2 \\ 0 & 0\end{bmatrix}$\\
+    Eigenvector: $\begin{bmatrix}1 \\ 1\end{bmatrix}$\\
+    Eigenvectors for $\lambda = 5$:\\
+    $\begin{bmatrix}-1 & -2 \\ -1 & -2\end{bmatrix} \Rightarrow \begin{bmatrix}-1 & -2 \\ 0 & 0\end{bmatrix}$\\
+    Eigenvector: $\begin{bmatrix}-2 \\ 1\end{bmatrix}$\\
+    The two eigenvectors form the basis
+
+    \item[13.]
+    \begin{enumerate}
+        \item
+        $A\Vec{b_1} = \begin{bmatrix}2 \\ 2\end{bmatrix} = 2\Vec{b_1}$\\
+        $\det(A - \lambda I) = \begin{vmatrix}1 - \lambda & 1 \\ -1 & 3 - \lambda\end{vmatrix} = (1 - \lambda)(3 - \lambda) + 1 = 4 - 4\lambda + \lambda^2 = (\lambda - 2)^2$\\
+        $A - 2I = \begin{bmatrix}-1 & 1 \\ -1 & 1\end{bmatrix} \Rightarrow \begin{bmatrix}-1 & 1 \\ 0 & 0\end{bmatrix}$\\
+        Only one eigenvector (geometric multiplicity 1) despite 2 having algebraic multiplicity 2. So $A$ isn't diagonalizable.
+
+        \item
+        $P = \begin{bmatrix}1 & 5 \\ 1 & 4\end{bmatrix}$\\
+        $P^{-1} = -\begin{bmatrix}4 & -5 \\ -1 & 1\end{bmatrix} = \begin{bmatrix}-4 & 5 \\ 1 & -1\end{bmatrix}$\\
+        $D = P^{-1}AP =
+        \begin{bmatrix}-4 & 5 \\ 1 & -1\end{bmatrix}
+        \begin{bmatrix}1 & 1 \\ -1 & 3\end{bmatrix}
+        \begin{bmatrix}1 & 5 \\ 1 & 4\end{bmatrix} =
+        \begin{bmatrix}-9 & 11 \\ 2 & -2\end{bmatrix}
+        \begin{bmatrix}1 & 5 \\ 1 & 4\end{bmatrix} =
+        \begin{bmatrix}2 & -1 \\ 0 & 2\end{bmatrix}$
+    \end{enumerate}
+
+    \item[15.]
+    \begin{enumerate}
+        \item $T(\Vec{p}) = 3 + 3t + 3t^2$. Yes, it's an eigenvector (with eigenvalue 3).
+        \item $T(\Vec{p}) = -1 - t - t^2$. Not an eigenvector since it's not a multiple.
+    \end{enumerate}
+
+    \item[17-20.]
+    \item[21.]
+    $B^{-1} = (P^{-1}AP)^{-1} = P^{-1}(P^{-1}A)^{-1} = P^{-1}A^{-1}P$\\
+    $P^{-1}A^{-1}P$ is defined, so $B^{-1}$ is also defined and similar to $A^{-1}$.
+    
+    \item[23.]
+    $B = PAP^{-1}$ for some $P$\\
+    $QCQ^{-1} = A$ for some $Q$\\
+    $B = P(QCQ^{-1})P^{-1} = PQCQ^{-1}P^{-1} = (PQ)C(PQ)^{-1}$
+
+    \item[25.]
+    Need to prove that $BP^{-1}\Vec x = \lambda P^{-1}\Vec x$\\
+    $A = PBP^{-1}$\\
+    $A\Vec x = PBP^{-1}\Vec x$\\
+    $\lambda\Vec x = PBP^{-1}\Vec x$\\
+    $P^{-1}\lambda\Vec x = BP^{-1}\Vec x$\\
+    $\lambda P^{-1}\Vec x = BP^{-1}\Vec x$
+
+    \item[27.]
+    \newcommand{\tr}{\mathrm{tr}}
+    $A = PBP^{-1}$\\
+    $\tr(A) = \tr(PBP^{-1})$\\
+    $\tr(A) = \tr(BPP^{-1})$\\
+    $\tr(A) = \tr(BI)$\\
+    $\tr(A) = \tr(B)$
+\end{enumerate}
+
+\section*{5.5}
+
+\begin{enumerate}
+    \item[1.]
+    $\displaystyle \det(A - \lambda I) = \begin{vmatrix}1 - \lambda & -2 \\ 1 & 3 - \lambda\end{vmatrix} = (1 - \lambda)(3 - \lambda) + 2 = 5 - 4\lambda + \lambda^2 = \frac{4 \pm \sqrt{16 - 20}}{2} = \frac{4 \pm 2i}{2} = 2 \pm i$\\
+    $\lambda = 2 + i$:\\
+    $A - (2 + i)I = \begin{bmatrix}-1 - i & -2 \\ 1 & 1 - i\end{bmatrix} \Rightarrow \begin{bmatrix}0 & 0 \\ 1 & 1 - i\end{bmatrix}$\\
+    Basis: $\set{\begin{bmatrix}-1 + i \\ 1\end{bmatrix}}$\\
+    $\lambda = 2 - i$:\\
+    $A - (2 - i)I = \begin{bmatrix}-1 + i & -2 \\ 1 & 1 + i\end{bmatrix} \Rightarrow \begin{bmatrix}0 & 0 \\ 1 & 1 + i\end{bmatrix}$\\
+    Basis: $\set{\begin{bmatrix}-1 - i \\ 1\end{bmatrix}}$
+
+    \item[3.]
+    $\displaystyle \det(A - \lambda I) = \begin{vmatrix}1 - \lambda & 2 \\ -4 & 5 - \lambda\end{vmatrix} = (1 - \lambda)(5 - \lambda) + 8 = 13 - 6\lambda + \lambda^2 = \frac{6 \pm \sqrt{36 - 52}}{2} = \frac{6 \pm 4i}{2} = 3 \pm 2i$\\
+    $\lambda = 3 + 2i$\\
+    $A - (3 + 2i) = \begin{bmatrix}-2 - 2i & 2 \\ -4 & 2 - 2i\end{bmatrix}
+    \Rightarrow \begin{bmatrix}-1 - i & 1 \\ -4 & 2 - 2i\end{bmatrix}
+    \Rightarrow \begin{bmatrix}-1 - i & 1 \\ -2 & 1 - i\end{bmatrix}
+    \Rightarrow \begin{bmatrix}-1 - i & 1 \\ 0 & 0\end{bmatrix}$\\
+    Basis: $\displaystyle \set{\begin{bmatrix}\frac{1}{1 + i} \\ 1\end{bmatrix}}$
+
+    \item[5.]
+    \item[7.]
+    \item[9.]
+    \item[13.]
+    \item[15.]
+    \item[23-26.]
+    \item[27.]
+\end{enumerate}
+
+\end{document}

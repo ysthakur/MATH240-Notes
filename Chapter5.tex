@@ -1,0 +1,159 @@
+\section{Eigenvalues and eigenvectors}
+
+\subsection{Eigenvectors and eigenvalues}
+
+Some linear transformations only stretch certain vectors along lines, and finding those lines can be helpful. An eigenvector is just a vector that gets scaled after a linear transformation.
+
+\textbf{Definition:} Let $A$ be an $n \times n$ matrix. Let $\lambda \in \R$. A nonzero vector $\Vec{v}$ is called an \textbf{eigenvector} of $A$ with \textbf{eigenvalue} $\lambda$ if $A\Vec{v} = \lambda\Vec{v}$
+
+To check if something is an eigenvector, just multiply $A\Vec{v}$, then check if the result is a multiple of $\Vec{v}$.
+
+To find eigenvectors, can take advantage of\\
+$A\Vec{v} = \lambda\Vec{v} \Leftrightarrow A\Vec{v} - \lambda\Vec{v} = \Vec{0} \Leftrightarrow (A - \lambda I)\Vec v = \Vec 0 \Leftrightarrow \Vec v \in \Null(A - \lambda I)$\\
+So \textbf{eigenspace} $E_{\lambda} = \Null(A - \lambda I) = \{\Vec \in \R^n \mid A\Vec v = \lambda\Vec v\}$ is a vector subspace of $\R^n$.\\
+So we know how to find all eigenvectors with a given eigenvalue.
+
+\textbf{Theorem:} If $A$ is upper- or lower-triangular, then the eigenvalues of $A$ are its diagonal entries.
+
+\textbf{Theorem:} Eigenvectors with distinct eigenvalues are linearly independent. That is, if $A$ is an $n \times n$ matrix and $\Vec{v_1}, ..., \Vec{v_k}$ are eigenvectors for $A$ with distinct eigenvalues $\lambda_1, ..., \lambda_k$, then $\{\Vec{v_1}, ..., \Vec{v_k}\}$ is a linearly independent set in $\R^n$.
+
+\subsection{The Characteristic Equation}
+
+Goal: Finding all eigenvalues.
+
+\begin{itemize}
+    \item We want the eigenspace to not be trivial ($\{\Vec 0\}$).
+    \item For $E_{\lambda} = \Null(A - \lambda I)$ to not be trivial, $A - \lambda I$ must be singular (not invertible).
+    \item So $\det(A - \lambda I) = 0$.
+    \item Generally, $\det(A - \lambda I)$ is a polynomial, and the roots of that polynomial are exactly the eigenvalues of $A$.
+    \item \textbf{Definition:} We call $\det(A - \lambda I) = P_A(\lambda)$ the \textbf{characteristic polynomial} of $A$.
+    \item The equation $P_A(\lambda) = 0$ is called the \textbf{characteristic equation} of $A$.
+\end{itemize}
+
+\subsubsection*{Algebraic multiplicity}
+
+If the characteristic polynomial looks like $(1 - \lambda)(2 - \lambda)^2(4 - \lambda) = 0$, the root $2$ has multiplicity 2 because it's squared. The \textbf{algebraic multiplicity} of an eigenvalue is the power its part of the polynomial is raised to in the characteristic polynomial.
+
+If 0 is one of the eigenvalues, $A$ is singular (not invertible).
+
+If an eigenvalue has multiplicity 1, its associated eigenspace has dimension 1.
+
+\subsubsection*{Similar matrices}
+
+Problems with the methods above:
+\begin{itemize}
+    \item Computing $P_A(\lambda)$ is inefficient
+    \item Finding its roots is also inefficient
+\end{itemize}
+
+Similar matrices are a better way. Suppose $A$ and $B$ are $n \times n$ matrices, and $P$ is invertible, such that $A = PBP^{-1}$. Then we say $A$ and $B$ are \textbf{similar} matrices (similarity is an equivalence relation).
+
+\textbf{Theorem:} Any 2 similar matrices have the same characteristic polynomial and therefore the same eigenvalues with the same multiplicities (the converse is not true, two matrices can have the same characteristic polynomials without being similar).
+
+\textbf{Main idea}: if $A$ is similar to some triangular matrix $B$, then the eigenvalues of $A$ are just the diagonal entries of $B$.
+
+Similar matrices are not necessarily row-equivalent (and the other way around) because row operations can change eigenvalues.
+
+\subsubsection*{Geometric multiplicity and taking powers}
+
+The dimension of the eigenspace for some eigenvalue is the \textbf{geometric multiplicity} of that eigenvalue.
+
+If two matrices $A$ and $D$ are similar, then $A^n$ and $D^n$ are also similar.
+
+\subsection{Diagonalization}
+
+\textbf{Definition:} A square matrix $A$ is \textbf{diagonalizable} if $A$ is similar to a diagonal matrix, i.e., $A = PDP^{-1}$ for some diagonal matrix $D$ and invertible matrix $P$.
+
+One nice thing about diagonal matrices is that it's easy to square/cube/take high powers of them. $A^n$ is just all the individual elements raised to $n$.
+
+This can be extended to \emph{diagonalizable} matrices too: if $A = PDP^{-1}$ where $D$ is a diagonal matrix and $A$ is a diagonalizable matrix, then $A^n = PD^nP^{-1}$.
+
+\textbf{Theorem:} An $n \times n$ matrix $A$ is diagonalizable if and only if $\R^n$ has a basis consisting of eigenvectors for $A$.\\
+In this case, $A = PDP^{-1}$ where $D$ is a diagonal matrix whose diagonal is $\lambda_1, \lambda_2, ..., \lambda_n$ where each $\lambda_i$ is an eigenvalue of $A$\\
+and $P = \begin{bmatrix}\Vec{v_1} ... \Vec{v_2}\end{bmatrix}$ with $A\Vec{v_i} = \lambda_i\Vec{v_i}$, which is your basis of eigenvectors.
+
+\subsubsection*{Algebraic and geometric multiciplities}
+
+\textbf{Fact:} If $P_A(\lambda) = (\lambda - a_i)^{r_1}(\lambda - a_2)^{r_2}...(\lambda - a_k)^{r_k}$, then\\
+$r_i$ is the \textbf{algebraic multiplicity} of $a_i$\\
+and $\dim(E_{a_i}) = \dim(\Null(A-a_iI))$ is the \textbf{geometric multiplicity} of $a_i$.\\
+$1 \leq \dim(E_{a_i}) \leq r_i$ so geometric multiplicity $\leq$ algebraic multiplicity
+
+So if $A$ is $n \times n$ with $n$ distinct eigenvalues, then $P_a(\lambda) = (\lambda - a_1)(\lambda - a_2)...(\lambda - a_n)$\\
+so $\dim(E_{a_i}) = 1$ for each $i$.\\
+Thus, choose an eigenvector $\Vec{v_i} \in E_{a_i}$ ($A\Vec{v_i} = a_i\Vec{v_i}$)\\
+then $\{\Vec{v_1}, ..., \Vec{v_n}\}$ form a basis of eigenvectors, so $A$ is diagonalizable.\\
+\textbf{Theorem:} If $A$ is $n \times n$ with $n$ distinct eigenvalues, then $A$ is diagonalizable (converse is not true).
+
+\subsubsection*{How to tell if two matrices aren't similar}
+
+Check if algebraic and geometric multiplicities are the same.
+
+Can look at Jordan canonical form (don't need to know for exam or anything)
+
+\subsection{Eigenvectors and Linear Transformations}
+
+If there's a linear transformation $T \colon V \mapsto W$ and $B$ is a basis for $V$ and $C$ is a basis for $W$, then if you want a matrix that does what $T$ does (turns coordinate vectors for $V$ relative to $B$ into coordinate vectors for $W$ relative to $C$), then that matrix is\\
+$\displaystyle M_T^{B,C} = \left[[T(\Vec{b_1})]_C \,\,\, ...\,\,\, [T(\Vec{b_n})]_C\right]$ where the $\Vec{b_i}$s are the vectors in the standard basis for $B$.
+
+If $T \colon V \mapsto V$ and you're using the same basis for both the input and output, then $M_T^{B,B}$ can also be called $[T]_B$ (matrix for $T$ relative to $B$) in short.
+
+\subsubsection*{Similar matrices and change of basis}
+
+\begin{itemize}
+    \item Suppose $A$ and $D$ are similar $n \times n$ matrices. Then $A = PDP^{-1}$ for some invertible $n \times n$ matrix $P$.
+    \item Make a linear transformation $T \colon \R^n \mapsto \R^n$ that maps $\Vec x$ to $A\Vec x$ (just the linear transformation that $A$ represents).
+    \item So $[T]_{\mathcal{E}} = A$
+    \item Say $P = \left[\Vec{b_1}\,\,...\,\,\Vec{b_n}\right]$ and let $B = \{\Vec{b_1}, ..., \Vec{b_n}\}$ ($B$ is a basis of $\R^n$)
+    \item \textbf{Fact:} Then $[T]_B = D$
+    \item So $A$ and $D$ are representations of the same linear transformation, but relative to different fixed bases.
+\end{itemize}
+
+\textbf{Definition:} Let $V$ be a finite-dimensional vector space and $T \colon V \mapsto V$\\
+A nonzero vector $\Vec{v} \in V$ is an \textbf{eigenvector} of $T$ with eigenvalue $\lambda$ if $T(\Vec{v}) = \lambda\Vec{v}$
+
+So $\Vec{v} \in \ker(T - \lambda I) = E_{\lambda}$ (called \textbf{eigenspace}, a vector subspace of $V$)
+
+If $V$ has a basis $B$ relative to which the matrix for $T$ is diagonal, say $B = \{\Vec{b_1}, ..., \Vec{b_n}\}$,\\
+then $[T]_b = \mathrm{diag}([\lambda_1 \,\,\, ... \,\,\, \lambda_n])$\\
+So $T(\Vec{b_i}) = \lambda\Vec{b_i}$, meaning that $B$ consisted of eigenvectors in the first place.
+
+So if you're picking a basis, make sure to pick a basis made of eigenvectors.
+
+\subsection{Complex Eigenvalues}
+
+The nice thing about complex eigenvalues is that you're guaranteed to have all $n$ roots/eigenvalues if your characteristic polynomial has degree $n$. If you want to allow complex eigenvalues, you only need to allow complex entries inside the matrix and its eigenvectors.
+
+\subsubsection*{Iterates of a vector}
+
+If you have a linear transformation $A \colon \R^2 \mapsto \R^2$, then you can take the \textbf{iterates} to understand it better: $A\Vec x$, $A(A\Vec x)$, $A(A(A\Vec x))$, ..., $A^k\Vec x$.
+
+Some notation:\\
+If you have a $z \in \C$ and $z = a+bi$, then $a = \Rel(z)$ and $b = \Imag(z)$\\
+Similarly, if a vector $\Vec v \in \C^n$ and $\Vec v = \begin{bmatrix}a_1 + b_1 i \\ \vdots \\ a_n + b_n i\end{bmatrix}$, then $\Rel(\Vec v) = \begin{bmatrix}a_1 \\ \vdots \\ a_n\end{bmatrix}$ and $\Imag(\Vec v) = \begin{bmatrix}b_1 \\ \vdots \\ b_n\end{bmatrix}$
+
+\textbf{Definition:} The \textbf{complex conjugate} of $z = a+bi$ is $\bar z = a-bi$\\
+For $\Vec v = \begin{bmatrix}a_1 + b_1 i \\ \vdots \\ a_n + b_n i\end{bmatrix}$, just take complex conjugate of each entry: $\overline{\Vec v} = \begin{bmatrix}a_1 - b_1 i \\ \vdots \\ a_n - b_n i\end{bmatrix}$
+
+When $A$ is an $n \times n$ real matrix, $P_A(\lambda)$ has real coefficients.\\
+\textbf{Fact:} The complex roots of $P_A(\lambda)$ come in conjugate pairs (if you have one complex root, its complex conjugate is also a root of $P_A(\lambda)$)
+
+This is important because if $\lambda \in \C$ is an eigenvalue of some matrix $A$, then $\bar \lambda$ (its complex conjugate) is also an eigenvalue of $A$.
+
+\subsubsection*{Imagining the complex numbers as $2 \times 2$ matrices}
+
+If $A = \begin{bmatrix}0 & -1 \\ 1 & 0\end{bmatrix}$, then $A^2 = -I$, so $A$ is kinda like $i$\\
+If $B = I$, then $B^2 = I$, so $B$ is kinda like $1$\\
+You could use these two matrices to make a 2D vector space isomorphic to $\C$:
+\[\set{a\begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix} + b\begin{bmatrix}0 & -1 \\ 1 & 0\end{bmatrix} \middle\vert a, b \in \R} = \set{\begin{bmatrix}a & -b \\ b & a\end{bmatrix} \middle\vert a, b \in \R}\]
+This vector space maintains not only the additive structure of $\C$ but also the multiplicative structure, so you can think of complex numbers as these $2\times 2$ matrices intead.
+
+You can think of complex numbers as points on a 2D plane in terms of polar coordinates $(r, \theta)$ (where $r$ is the norm and $\theta$ is the angle such that $a = r\cos\theta$ and $b = r\sin\theta$)\\
+So multiplying by a complex number is like scaling by $r$ and rotating it by $\theta$ (if you convert it to one of the $2\times2$ matrices above, it looks like a rotation matrix times $r$).
+
+\textbf{Theorem:}\\
+Let $A$ be a real $2\times2$ matrix with complex eigenvalues $\lambda = a \pm bi$, $b > 0$.\\
+Let $\Vec v \in \C^2$ be an eigenvector with eigenvalue $a - bi$.\\
+Take $P = [\Rel(\Vec v) \,\,\Imag(\Vec v)]$\\
+Then $P$ is invertible and $P^{-1}AP = \begin{bmatrix}a & -b \\ b & a\end{bmatrix}$ ($A$ is similar to that complex number)\\
+This sort of thing also happens in higher dimensions but that won't be in this class
