@@ -1,2 +1,3 @@
-# Math240-Notes
-MATH 240 Notes
+# MATH 240 Notes
+
+[PDF](./Math240_Notes.pdf)
